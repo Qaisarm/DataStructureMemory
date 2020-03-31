@@ -132,7 +132,45 @@ namespace DataStructureMemory
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
-        
+            bool exit = false;
+            Queue qt = new Queue();
+            do
+            {
+                Console.WriteLine("___________________________________________");
+                Console.WriteLine("########### Examine Queue Menu #############");
+                Console.WriteLine("___________________________________________\n");
+                Console.WriteLine("To add element to queue '+name'.");
+                Console.WriteLine("To remove first element from the queue enter '-'.");
+                Console.WriteLine("To print elements in the queue enter 'p'.");
+                Console.WriteLine("Enter 'q' to exit this menu.");
+                Console.WriteLine("_________________________\n");
+                string input = Console.ReadLine();
+                char nav = input[0];
+                string value = input.Substring(1);
+                switch (nav)
+                {
+                    case '+':
+                        qt.Enqueue(value);
+                        break;
+                    case '-':
+                        qt.Dequeue();
+                        break;
+                    case 'p':
+                        foreach (Object obj in qt)
+                        {
+                            Console.WriteLine(obj);
+                        }
+                        string nElement = $" Number of Elements in Queue: {qt.Count}";
+                        Console.WriteLine(nElement);
+                        break;
+                    case 'q':
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Please enter in a correct format to enqueue or dequeue elements from Queue");
+                        break;
+                }
+            } while (!exit);
 
         }
 
