@@ -282,6 +282,65 @@ namespace DataStructureMemory
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
 
+           
+            string expression;
+            Console.Write("Enter an expression/Enter 0 to exit the menu:  ");
+            expression = Console.ReadLine();
+
+            
+            if (AreParanthesesBalanced(expression))
+            {
+                Console.Write("The Parantheses are in Correct form\n");
+                Console.WriteLine(expression);
+            }
+            else
+            {
+                Console.Write("The Parantheses are not in Correct form\n");
+                Console.WriteLine(expression);
+            }
+
+            static bool pairedParantheses(char opening, char closing)
+            {
+                if (opening == '(' && closing == ')')
+                {
+                    return true;
+                }
+                else if (opening == '{' && closing == '}')
+                {
+                    return true;
+                }
+                else if (opening == '[' && closing == ']')
+                {
+                    return true;
+                }
+                return false;
+            }
+            static bool AreParanthesesBalanced(string exp)
+            {
+                Stack<char> pStack = new Stack<char>();
+                for (int i = 0; i < exp.Length; i++)
+                {
+                    if (exp[i] == '(' || exp[i] == '{' || exp[i] == '[')
+                    {
+                        pStack.Push(exp[i]);
+                    }
+                    else if (exp[i] == ')' || exp[i] == '}' || exp[i] == ']')
+                    {
+                        if (pStack.Count == 0 || !pairedParantheses(pStack.Peek(), exp[i]))
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            pStack.Pop();
+                        }
+                    }
+                }
+                return pStack.Count == 0 ? true : false;
+            }
+
+            
+
         }
 
     }
