@@ -1,4 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Linq;
+using System.Collections;
+using System.Diagnostics;
+using System.Threading;
 
 namespace DataStructureMemory
 {
@@ -43,6 +49,9 @@ namespace DataStructureMemory
                     case '4':
                         CheckParanthesis();
                         break;
+                    case '5':
+                        TestQueue();
+                        break;
                     /*
                      * Extend the menu to include the recursive 
                      * and iterative exercises.
@@ -71,13 +80,46 @@ namespace DataStructureMemory
              * As a default case, tell them to use only + or -
              * Below you can see some inspirational code to begin working.
             */
+            bool exit = false;
+            List<string> theList = new List<string>();
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
+            do
+            {
 
-            //switch(nav){...}
+                Console.WriteLine("___________________________________________");
+                Console.WriteLine("########### Examine List Menu #############");
+                Console.WriteLine("___________________________________________\n");
+                Console.WriteLine("To add item to list enter '+Item name'.");
+                Console.WriteLine("To remove item from the list enter '-Item name'.");
+                Console.WriteLine("To print item in the list enter 'p'.");
+                Console.WriteLine("Enter 'q' to exit this menu.");
+                Console.WriteLine("_________________________\n");
+                string input = Console.ReadLine();
+                char nav = input[0];
+                string value = input.Substring(1);
+                switch (nav)
+                {
+                    case '+':
+                        theList.Add(value);
+                        break;
+                    case '-':
+                        theList.Remove(value);
+                        break;
+                    case 'p':
+                        foreach(var listItem in theList) {
+                            Console.WriteLine(listItem);
+                              }
+                        Console.WriteLine( $"Item Count: {theList.Count}");
+                        Console.WriteLine($"List Capacity: {theList.Capacity}");
+                        break;
+                    case 'q':
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Please enter in a correct format to add/remove items from the List");
+                        break;
+                }
+            } while (!exit);
         }
 
         /// <summary>
@@ -90,8 +132,11 @@ namespace DataStructureMemory
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+        
+
         }
 
+        
         /// <summary>
         /// Examines the datastructure Stack
         /// </summary>
