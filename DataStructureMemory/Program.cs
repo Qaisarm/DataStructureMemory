@@ -261,8 +261,7 @@ namespace DataStructureMemory
                 Console.WriteLine("########### Examine Stack Menu #############");
                 Console.WriteLine("___________________________________________\n");
                 Console.WriteLine("To check ICA queue stack enter '1'.");
-                Console.WriteLine("To add element in stack enter  'a'.");
-                Console.WriteLine("To remove element from stack enter  'o'.");
+                Console.WriteLine("To add element in stack enter  '2'.");
                 Console.WriteLine("To print elements in the stack enter 'p'.");
                 Console.WriteLine("Enter 'q' to exit this menu.");
                 Console.WriteLine("_________________________\n");
@@ -276,9 +275,8 @@ namespace DataStructureMemory
                         IcaStack();
 
                         break;
-                    case 'a':
-                        CheckStack(myStack); ;
-                       
+                    case '2':
+                        CheckStack(myStack);                    
 
                         break;
                 
