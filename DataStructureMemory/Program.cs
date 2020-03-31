@@ -49,9 +49,6 @@ namespace DataStructureMemory
                     case '4':
                         CheckParanthesis();
                         break;
-                    case '5':
-                        TestQueue();
-                        break;
                     /*
                      * Extend the menu to include the recursive 
                      * and iterative exercises.
@@ -185,7 +182,97 @@ namespace DataStructureMemory
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+           
+          
+
+
+            bool exit = false;
+
+            Stack<string> myStack = new Stack<string>();
+
+            do
+            {
+                Console.WriteLine("___________________________________________");
+                Console.WriteLine("########### Examine Stack Menu #############");
+                Console.WriteLine("___________________________________________\n");
+                Console.WriteLine("To check ICA queue stack enter '1'.");
+                Console.WriteLine("To add element in stack enter  'a'.");
+                Console.WriteLine("To remove element from stack enter  'o'.");
+                Console.WriteLine("To print elements in the stack enter 'p'.");
+                Console.WriteLine("Enter 'q' to exit this menu.");
+                Console.WriteLine("_________________________\n");
+
+                string input = Console.ReadLine();
+                char nav = input[0];
+                switch (nav)
+                {
+                    
+                    case '1':
+                        IcaStack();
+
+                        break;
+                    case 'a':
+                        CheckStack(myStack); ;
+                       
+
+                        break;
+                
+                    case 'p':
+                        foreach (Object obj in myStack)
+                        {
+                            Console.WriteLine(obj);
+                        }
+                        string nElement = $" Number of Elements in Stack: {myStack.Count}";
+                        Console.WriteLine(nElement);
+                        break;
+                    case 'q':
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Please enter in a correct format to push or pop elements from Stack");
+                        break;
+                }
+            } while (!exit);
+            
+
+
+            static void IcaStack()
+            {
+                // ICA Queue
+                string[] values = { "Kalle", "Greta", "Stina", "Olle", "Erik", "Sara" };
+
+
+                var stack = new Stack<string>(values);
+
+                // Display the Stack.
+                Console.WriteLine("--- Stack contains ---");
+                foreach (var st in stack)
+                {
+                    Console.WriteLine(st);
+                }
+            }
+
+            static void CheckStack(Stack<string> myStack)
+            {
+
+                Console.WriteLine("Enter you input:");
+                string myString = Console.ReadLine();
+
+                for (int i = 0; i < myString.Length; i++)
+                {
+                    myStack.Push(myString[i].ToString());
+                }
+
+                Console.WriteLine("_____________________");
+                Console.WriteLine("Pop out string");
+                Console.WriteLine("_____________________");
+                for (int j = 0; j < myString.Length; j++)
+                {
+                    Console.WriteLine(myStack.Pop());
+                }
+            }
         }
+
 
         static void CheckParanthesis()
         {
