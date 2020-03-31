@@ -60,6 +60,58 @@ namespace DataStructureMemory
         }
 
         /// <summary>
+        /// 1-
+        /// Stack is a static memory allocation and the valiables are 
+        /// directly stored to thememory. It is a Last-in, First-out (LIFO) data structure.
+        /// Data can be added to stack and deleted only from the top of stack to add Push is used
+        /// while to delete Pop is used.
+        /// On the other hand Heap is a Dynamic memory allocation, i.e.,
+        /// the valiables get their memory allocation on the runtime and the valiavles can be resized
+        /// Heap contains actual objects and heap memory is used by all parts of application.
+        /// 
+        /// as an example to add two integers we have a method
+        /// int add(int a, int b){
+        /// return a+b;
+        /// }
+        /// when we call this method as
+        /// int a =3;
+        /// int b =5;
+        /// int result = add(a,b)
+        /// The integers 3 and 5 are copied into the add() stack and the result is 
+        /// allocated on the add’s stack and then copied back to the result.
+        /// 
+        /// an other way to implement the above example is 
+        /// int add()
+        /// {
+        /// return this.a+this.b;
+        /// }
+        /// this.a= 3;
+        /// this.b= 5;
+        /// int result = add();
+        /// here a and b are stored in heap
+        /// This method has no arguments but a and b are copied from heap to 
+        /// the program stack before being operated in add().
+        /// 
+        /// 2-
+        /// Value type is a data type that holds a data value within its own memory space
+        /// and they contain their values directly e.g, int i = 5;
+        /// In this case the system stores the value of 5 in the memory space allocated to 'i'
+        /// 
+        /// on the other hand Reference type doest not stores the value directly and instead it stores the 
+        /// address where the value is being stored, i.e., it contains a pointer to another memory location
+        /// that holds the data.
+        /// 3-
+        /// in the first method the data is of value type, 
+        /// first we allocate 3 to x, then we state y=x and then 4 to y,
+        /// the value of x is not changed so when we return x it returns 3.
+        /// but in the second method the data is refference type when we change the value of 
+        /// y to x and assign a new value to y, then the value of x is also changed
+        /// as we have same pointer to x and y.
+        /// 
+        /// </summary>
+
+
+        /// <summary>
         /// Examines the datastructure List
         /// </summary>
         static void ExamineList()
@@ -115,6 +167,22 @@ namespace DataStructureMemory
             } while (!exit);
         }
 
+
+        /// <summary>
+        /// Examines the datastructure List
+        /// 
+        /// 2- The capacity of list is increased when the current capacity is exceeded
+        /// 3- The capacity is doubbled
+        /// 4- When the capacity of the list expands a new list is created and all the elements 
+        /// are inserted in the new list which is not memory efficeient as if its capacity is
+        /// not increased then every time a new list has to be created and the data has to be inserted 
+        /// in the new list. To avoid this the the capacity is doubbled every time it exceeds the limits.
+        /// 5- The capacity is not decreased when we remove the element from list
+        /// 6- Instead of list the advantage of self-defined array is when we know the number of the elements
+        /// a list should have.
+        /// </summary>
+
+
         /// <summary>
         /// Examines the datastructure Queue
         /// </summary>
@@ -166,8 +234,9 @@ namespace DataStructureMemory
             } while (!exit);
 
         }
+       
 
-        
+
         /// <summary>
         /// Examines the datastructure Stack
         /// </summary>
@@ -247,7 +316,13 @@ namespace DataStructureMemory
                     Console.WriteLine(st);
                 }
             }
-
+            /// <summary>
+            /// Examines the datastructure Stack
+            /// 
+            /// It is not so smart to use stack in ICA queue example as stack operates
+            /// on First in Last out method, so when Kalle enters the queue he will exit from the queue 
+            /// the last
+            /// </summary>
             static void CheckStack(Stack<string> myStack)
             {
 
@@ -282,19 +357,31 @@ namespace DataStructureMemory
             Console.WriteLine("########### Examine Paranthesis #############");
             Console.WriteLine("___________________________________________\n");
             string expression;
-            Console.Write("Enter an expression:  ");
+            Console.Write("Enter an expression with Paranthesis:  ");
             expression = Console.ReadLine();
 
             
             if (AreParanthesesBalanced(expression))
             {
+
+                Console.WriteLine("___________________________________________\n");
                 Console.Write("The Parantheses are in Correct form\n");
+
+                Console.WriteLine("___________________________________________\n");
                 Console.WriteLine(expression);
+
+                Console.WriteLine("___________________________________________\n");
             }
             else
             {
+
+                Console.WriteLine("___________________________________________\n");
                 Console.Write("The Parantheses are not in Correct form\n");
+
+                Console.WriteLine("___________________________________________\n");
                 Console.WriteLine(expression);
+
+                Console.WriteLine("___________________________________________\n");
             }
 
             static bool pairedParantheses(char opening, char closing)
