@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Linq;
 using System.Collections;
-using System.Diagnostics;
-using System.Threading;
 
 namespace DataStructureMemory
 {
@@ -282,9 +278,11 @@ namespace DataStructureMemory
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
 
-           
+            Console.WriteLine("___________________________________________");
+            Console.WriteLine("########### Examine Paranthesis #############");
+            Console.WriteLine("___________________________________________\n");
             string expression;
-            Console.Write("Enter an expression/Enter 0 to exit the menu:  ");
+            Console.Write("Enter an expression:  ");
             expression = Console.ReadLine();
 
             
